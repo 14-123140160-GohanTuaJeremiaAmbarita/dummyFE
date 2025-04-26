@@ -1,0 +1,132 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 200px 1fr; 
+    grid-template-rows: 60px 1fr; 
+    min-height: 100vh;
+}
+
+
+.top-bar {
+    grid-column: 1 / -1; 
+    background-color: #2E5101; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-hmif {
+    display: flex;
+    align-items: center;
+}
+
+.logo-hmif img {
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 5px; 
+    border: 1px solid #ddd; 
+}
+
+.logo-hmif span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.logout-button {
+    background-color: #DC143C; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #B22222;
+}
+
+
+.sidebar {
+    grid-row: 2 / -1; 
+    background-color: #1E3A8A; 
+    color: white;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.fitur-label {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    text-align: left; 
+}
+
+.sidebar nav ul li a.active {
+    background-color: #1565C0;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #1565C0;
+}
+
+/* Content */
+.content {
+    grid-row: 2 / -1;
+    padding: 20px;
+}
+
+.content header h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: flex-end; /* Pindahkan ke kanan */
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Sesuaikan lebar search bar */
+    font-size: 1em;
+}
+

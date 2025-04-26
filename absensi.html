@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absensi</title>
+    <link rel="stylesheet" href="absensi.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <div class="logo">MENU</div>
+        <nav>
+          <ul>
+            <li>
+              <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            </li>
+            <li><a href="absensi.html" class="nav-link active">Absensi</a></li>
+            <li><a href="management.html" class="nav-link">Manajemen</a></li>
+            <li>
+              <a href="login.html" class="nav-link logout-btn">Log Out</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header>
+          <h1>Absensi</h1>
+        </header>
+
+        <section class="attendance-section">
+          <div class="attendance-check">
+            <h2>Input Absensi</h2>
+            <form id="absensiForm">
+              <label for="tanggal">Tanggal:</label>
+              <input type="date" id="tanggal" required />
+
+              <label for="namaAcara">Nama Acara:</label>
+              <input
+                type="text"
+                id="namaAcara"
+                placeholder="Nama Acara"
+                required
+              />
+
+              <label for="jam">Jam:</label>
+              <input type="time" id="jam" required />
+
+              <label for="lokasi">Lokasi:</label>
+              <input type="text" id="lokasi" placeholder="Lokasi" required />
+
+              <label for="deskripsi">Deskripsi:</label>
+              <input
+                type="text"
+                id="deskripsi"
+                placeholder="Deskripsi Acara"
+                required
+              />
+
+              <button type="submit" class="btn btn-primary">
+                Tambah Absensi
+              </button>
+            </form>
+          </div>
+
+          <h2>Riwayat Acara yang Diikuti</h2>
+          <div class="attendance-history">
+            <table id="riwayat-absensi">
+              <thead>
+                <tr>
+                  <th>Tanggal</th>
+                  <th>Nama Acara</th>
+                  <th>Jam</th>
+                  <th>Lokasi</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const form = document.getElementById("absensiForm");
+      const tableBody = document.querySelector("#riwayat-absensi tbody");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // supaya tidak reload
+
+        // Ambil data dari form
+        const tanggal = document.getElementById("tanggal").value;
+        const namaAcara = document.getElementById("namaAcara").value;
+        const jam = document.getElementById("jam").value;
+        const lokasi = document.getElementById("lokasi").value;
+        const deskripsi = document.getElementById("deskripsi").value;
+
+        // Buat baris baru
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${tanggal}</td>
+            <td>${namaAcara}</td>
+            <td>${jam}</td>
+            <td>${lokasi}</td>
+            <td>${deskripsi}</td>
+        `;
+
+        // Tambahkan ke tabel
+        tableBody.appendChild(newRow);
+
+        // Reset form
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
